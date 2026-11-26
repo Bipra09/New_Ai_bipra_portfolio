@@ -14,8 +14,8 @@ export const projects = [
   {name:'Facial Recognition & Emotion AI', type:'Computer vision', image:'facial.jpg', tags:'Python · Facial recognition', keywords:/facial|emotion/i, text:'A student project exploring face and emotion recognition.'},
 ].map(p => ({...p, url:p.slug ? github + p.slug : ''}));
 
-const background = 'Bipra Biswas is an AI Engineer in the Advanced Business Department of Intfor Co., Ltd. (T&S Group) in Japan, where he has worked since April 2026. He works on computer vision and image processing, including image classification and CT artifact removal.';
-const skills = 'Bipra uses Python, PyTorch, Linux, Windows, GitLab, and GitHub. His work includes dataset preparation, reproducible GPU experiments, cross-validation, Grad-CAM, Optuna, and model benchmarking. His software projects use React, Node.js, Express, MongoDB, and PostgreSQL.';
+const background = 'Bipra Biswas is an AI Engineer in the Advanced Business Department of Intfor Co., Ltd. (T&S Group) in Japan, where he has worked since April 2026. His work includes image classification, semantic segmentation, 3D image processing for artifact removal, large vision model evaluation, and TensorRT inference optimization.';
+const skills = 'Bipra uses Python, PyTorch, Linux, Windows, GitLab, and GitHub. His work includes dataset creation and annotation with Labelme and other tools, synthetic training data generation with Unreal Engine, reproducible GPU experiments, cross-validation, Grad-CAM, Optuna, and model benchmarking. His software projects use React, Node.js, Express, MongoDB, PostgreSQL, and MySQL.';
 const education = 'Bipra earned a B.Tech in Computer Science and Engineering (AI & Robotics) at Vellore Institute of Technology in June 2025. He led the NexSeed Venture Capital Club and contributed to the Aerospace Club.';
 const certificate = 'Bipra holds the Microsoft Certified: Azure Administrator Associate credential.';
 export const facts = [background, skills, education, certificate, ...projects.map(p => p.name + ' — ' + p.text)].join('\n');
@@ -34,7 +34,7 @@ export function findAnswer(prompt, lastProject) {
   if (/contact|email|linkedin|hire|reach/i.test(prompt)) return {answer:'Find Bipra on LinkedIn, GitHub, or via the email link in the portfolio’s Contact section.'};
   if (/certif|azure/i.test(prompt)) return {answer:certificate};
   if (/educat|college|university|\bvit\b|degree|robotics|nexseed|graduat/i.test(prompt)) return {answer:education};
-  if (/skill|tech stack|tools/i.test(prompt) || (/\b(?:bipra|his)\b/i.test(prompt) && /pytorch|python|grad.cam|optuna/i.test(prompt))) return {answer:skills};
+  if (/skill|tech stack|tools/i.test(prompt) || (/\b(?:bipra|his)\b/i.test(prompt) && /pytorch|python|grad.cam|optuna|tensorrt|labelme|unreal|mysql/i.test(prompt))) return {answer:skills};
   if (/projects|portfolio|what.*built/i.test(prompt)) return {answer:'Start with VisionX for computer vision, K&K for transactional checkout and automated tests, and ParkRelay for backend development. See Selected projects for the full list.'};
   if (/bipra|experience|employ|background|job|intfor|what (do|does).*work/i.test(prompt)) return {answer:background};
   return null;
