@@ -137,7 +137,8 @@ modelButton.onclick = async () => {
     modelReady = true;
     status.textContent = 'On-device model ready';
     modelButton.textContent = 'On-device model enabled';
-  } catch {
+  } catch (error) {
+    console.warn('AI Friday initialization:', error.message);
     disableModel('Model unavailable. Portfolio answers still work.');
   }
 };
