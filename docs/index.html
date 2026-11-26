@@ -7,10 +7,11 @@
 <title>Bipra Biswas | AI Engineer</title>
 <link rel="stylesheet" href="./portfolio.css">
 <script type="module" src="./portfolio.mjs"></script>
+<script type="module" src="./experience.mjs"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="bar"><nav class="wrap" aria-label="Main navigation"><a class="brand" href="#home">Bipra<span>.</span></a><div class="navlinks"><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></nav></header>
+<header class="bar"><nav class="wrap" aria-label="Main navigation"><a class="brand" href="#home">Bipra<span>.</span></a><div class="navlinks"><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div><div class="site-controls"><button id="theme-toggle" type="button" aria-pressed="false">Light mode</button><button id="language-toggle" type="button" lang="ja">日本語</button><button id="interact-toggle" type="button" aria-pressed="false">Interact mode</button></div></nav></header>
 <main id="main">
 <section class="wrap hero" id="home">
 <div>
@@ -19,6 +20,7 @@
 <p class="intro">I build computer vision systems and the software that puts them to work.</p>
 <p>My work ranges from preparing image datasets and running reproducible GPU experiments to analyzing model errors and packaging software for Windows and Linux.</p>
 <div class="actions"><a class="primary" href="#projects">Explore my work <span aria-hidden="true">↘</span></a><button class="secondary" type="button" data-open-chat>Ask AI Friday</button></div>
+<details class="resume"><summary>Download résumé</summary><div class="actions"><a href="./resume-en.pdf" download>English résumé</a><a href="./resume-ja.pdf" download>履歴書</a><a href="./career-history-ja.pdf" download>職務経歴書</a></div></details>
 </div>
 <div class="scene" aria-hidden="true"><div class="orbit ring-a"></div><div class="orbit ring-b"></div><div class="portrait"><img src="./myphoto_git.jpeg" alt="" fetchpriority="high"></div><div class="orbit ring-c"></div></div>
 </section>
@@ -35,9 +37,10 @@
 <section class="wrap section contact" id="contact"><h2>Get in touch</h2><p>Based in Japan and open to conversations about AI and software engineering.</p><div class="actions"><a class="primary" href="https://linkedin.com/in/bipra-biswas-b1a1b727a">LinkedIn</a><a class="secondary" href="https://github.com/Bipra09">GitHub</a><a class="secondary" href="mailto:bipra.biswas309@gmail.com">Email</a></div></section>
 </main>
 <footer class="wrap footer">Bipra Biswas <a href="#home">Back to top ↑</a></footer>
-<button class="launch" type="button" data-open-chat aria-haspopup="dialog"><span aria-hidden="true">✦</span> AI Friday</button>
+<div id="interaction-sparks" aria-hidden="true"></div>
+<button class="launch" type="button" data-open-chat aria-haspopup="dialog"><span class="friday-face" aria-hidden="true"><span class="face-screen"><i></i><i></i><b></b></span></span><span>AI Friday</span></button>
 <dialog id="friday" aria-labelledby="friday-title">
-<header class="chat-head"><div><h2 id="friday-title">AI Friday</h2><p id="model-status" role="status">Portfolio answers ready</p></div><button type="button" class="icon" id="close-chat" aria-label="Close AI Friday">×</button></header>
+<header class="chat-head"><span class="friday-face" aria-hidden="true"><span class="face-screen"><i></i><i></i><b></b></span></span><div class="chat-heading"><h2 id="friday-title">AI Friday</h2><p id="model-status" role="status">Portfolio answers ready</p></div><button type="button" class="icon" id="close-chat" aria-label="Close AI Friday">×</button></header>
 <div id="messages" class="messages" role="log" aria-live="polite"><p class="bubble reply">Ask me about Bipra’s experience, skills, or projects. Enable the on-device model for general questions.</p></div>
 <div class="chat-tools"><div class="suggestions"><button type="button" data-question="What does Bipra work on?">Experience</button><button type="button" data-question="What are Bipra’s strongest projects?">Top projects</button><button type="button" data-question="What did K&K verify?">K&amp;K checkout</button></div><button type="button" class="model-button" id="enable-model">Enable on-device model</button><p class="model-note">One-time download of about 410 MB. Runs on your device and may be slow on older phones. Chat stays in this browser.</p></div>
 <form id="chat-form"><label class="sr" for="question">Message</label><input id="question" autocomplete="off" maxlength="500" placeholder="Ask a question…" required><button class="primary" id="send" type="submit">Send</button></form>

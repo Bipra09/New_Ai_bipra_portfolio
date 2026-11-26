@@ -16,3 +16,33 @@
 }
 #project-grid .project:nth-child(-n+2){border-color:#62794e;background:linear-gradient(155deg,#253127,var(--panel) 64%)}
 .bubble a{color:var(--lime)}
+/* Portfolio preferences and AI Friday motion */
+.site-controls{display:flex;flex-wrap:wrap;gap:.35rem}
+.site-controls button{padding:.36rem .52rem;border:1px solid var(--line);border-radius:.45rem;background:var(--panel);color:var(--ink);font-size:.77rem}
+.site-controls button[aria-pressed=true]{border-color:var(--lime);color:var(--lime)}
+html[data-theme=light]{color-scheme:light;--bg:#f6f7f0;--panel:#fff;--ink:#212c23;--muted:#46544b;--lime:#28603c;--line:#bdc8bb}
+[data-theme=light] .bar{background:#f6f7f0f2}
+[data-theme=light] .primary,[data-theme=light] .launch{color:#fff}
+[data-theme=light] .primary:hover,[data-theme=light] .launch:hover{background:#194624}
+[data-theme=light] #project-grid .project:nth-child(-n+2){background:linear-gradient(155deg,#e1ecdb,var(--panel) 70%)}
+[data-theme=light] .project .tags{color:#355340}
+[data-theme=light] .mine{background:#e1ecdb}
+[data-theme=light] .scene{background:radial-gradient(ellipse,#d6e8cf 5%,transparent 69%)}
+[data-theme=light] .orbit{border-color:#456a4b88}
+.resume{margin-top:.8rem}.resume .actions{margin-top:0;font-size:.88rem}
+.chat-heading{flex:1}
+.friday-face{--face-x:0px;--face-y:0px;display:inline-grid;place-items:center;flex:none;width:2.65rem;aspect-ratio:1.08;background:linear-gradient(150deg,#64746f,#17262b 45%,#13181f);border:1px solid #87948a;border-radius:32%;box-shadow:inset 0 1px 1px #ffffff24,0 4px 12px #0003;transform:rotateY(var(--face-angle,0deg))}
+.face-screen{display:flex;justify-content:center;align-items:center;gap:.38rem;position:relative;width:77%;height:66%;border-radius:35%;background:#151f25;border:1px solid #46655a;overflow:hidden}
+.face-screen i{display:block;width:.25rem;height:.46rem;border-radius:20px;background:#d3ff9d;box-shadow:0 0 .4rem #bdff96a3;transform:translate(var(--face-x),var(--face-y));transition:transform 140ms ease-out}
+.face-screen b{position:absolute;width:.44rem;height:.19rem;bottom:19%;border-bottom:1px solid #d3ff9d;border-radius:0 0 80% 80%;opacity:.65}
+.launch .friday-face{width:1.82rem}.launch .face-screen i{height:.34rem;width:.17rem}.launch .face-screen{gap:.25rem}.launch .face-screen b{display:none}
+html[data-interact=true] .face-screen i{animation:friday-blink 5s infinite}
+html[data-interact=true] .scene .portrait{translate:var(--pointer-x,0px) var(--pointer-y,0px)}
+html[data-interact=true] .scene .orbit{translate:calc(var(--pointer-x,0px) * -1.25) calc(var(--pointer-y,0px) * -1.25)}
+html[data-interact=true] .friday-face{transform:perspective(280px) rotateY(var(--face-angle,0deg))}
+#interaction-sparks{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:6}
+.interaction-spark{position:absolute;left:var(--x);top:var(--y);width:5px;height:5px;border-radius:50%;background:#a9e965;box-shadow:0 0 8px #b8fc8d;animation:spark .6s ease-out both}
+@keyframes spark{to{transform:translate(var(--dx),var(--dy)) scale(0);opacity:0}}
+@keyframes friday-blink{0%,94%,100%{scale:1 1}97%{scale:1 .1}}
+@media(max-width:850px){.bar nav{flex-wrap:wrap;padding-block:.45rem}.site-controls{flex:1 1 100%}.site-controls button{min-height:1.9rem}html{scroll-padding-top:7rem}}
+@media(prefers-reduced-motion:reduce){.face-screen i{transition:none}html[data-interact=true] .face-screen i,.interaction-spark{animation:none}html[data-interact=true] .scene :is(.portrait,.orbit){translate:none}}

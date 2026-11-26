@@ -22,6 +22,12 @@ export const facts = [background, skills, education, certificate, ...projects.ma
 
 export function findAnswer(prompt, lastProject) {
   if (/salary|home address|phone number|birth date|date of birth|private detail/i.test(prompt) && /\b(?:bipra|his|he)\b/i.test(prompt)) return {answer:'That detail is outside Bipra’s public portfolio. The Contact section lists his public professional channels.'};
+  if (/学歴|大学|卒業/.test(prompt)) return {answer:education};
+  if (/スキル|技術|得意/.test(prompt)) return {answer:skills};
+  if (/資格|認定/.test(prompt)) return {answer:certificate};
+  if (/職務|仕事|勤務|経歴|経験/.test(prompt)) return {answer:background};
+  if (/問い合わせ|連絡/.test(prompt)) return {answer:'お問い合わせ欄のLinkedIn、GitHub、メールからご連絡いただけます。'};
+  if (/プロジェクト|作品/.test(prompt)) return {answer:'画像認識ならVisionX、注文処理と自動テストならK&K、バックエンド開発ならParkRelayをご覧ください。'};
   const matched = projects.filter(p => p.keywords.test(prompt));
   if (matched.length) return {answer:matched.map(describe).join('\n\n'), project:matched[0]};
   if (lastProject && /\b(it|that|this|its)\b/i.test(prompt) && /stack|verified|test|build|work|tell|link|repo/i.test(prompt)) return {answer:describe(lastProject), project:lastProject};
