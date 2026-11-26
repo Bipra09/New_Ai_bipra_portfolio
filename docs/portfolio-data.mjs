@@ -15,7 +15,8 @@ export const projects = [
 ].map(p => ({...p, url:p.slug ? github + p.slug : ''}));
 
 const background = 'Bipra Biswas is an AI Engineer at Intfor Co., Ltd. (T&S Group) in Japan, where he has worked since April 2026. His work includes image classification, semantic segmentation, 3D image processing for artifact removal, large vision model evaluation, and TensorRT inference optimization.';
-const skills = 'Bipra uses Python, PyTorch, Linux, Windows, GitLab, and GitHub. His work includes dataset creation and annotation with Labelme and other tools, synthetic training data generation with Unreal Engine, reproducible GPU experiments, cross-validation, Grad-CAM, Optuna, and model benchmarking. His software projects use React, Node.js, Express, MongoDB, PostgreSQL, and MySQL.';
+const skills = 'Computer vision: image classification, semantic segmentation, 3D image processing, and large vision models (LVMs). ML tools: Python, PyTorch, OpenCV, TensorRT, Grad-CAM, Unreal Engine, and data augmentation. Software and data: Linux, Git, GitHub, GitLab, SQL, MySQL, PostgreSQL, and MongoDB.';
+const skillsJa = 'コンピュータビジョン：画像分類、セマンティックセグメンテーション、3D画像処理、大規模ビジョンモデル（LVM）。機械学習ツール：Python、PyTorch、OpenCV、TensorRT、Grad-CAM、Unreal Engine、データ拡張。開発・データベース：Linux、Git、GitHub、GitLab、SQL、MySQL、PostgreSQL、MongoDB。';
 const education = 'Bipra earned a B.Tech in Computer Science and Engineering (AI & Robotics) at Vellore Institute of Technology in June 2025. In VIT’s Aerospace Club, he helped build drones, model aircraft, and model rockets, and contributed to drone testing and documentation.';
 const certificate = 'Bipra holds the Microsoft Certified: Azure Administrator Associate credential.';
 export const facts = [background, skills, education, certificate, ...projects.map(p => p.name + ' — ' + p.text)].join('\n');
@@ -23,7 +24,7 @@ export const facts = [background, skills, education, certificate, ...projects.ma
 export function findAnswer(prompt, lastProject) {
   if (/salary|home address|phone number|birth date|date of birth|private detail/i.test(prompt) && /\b(?:bipra|his|he)\b/i.test(prompt)) return {answer:'That detail is outside Bipra’s public portfolio. The Contact section lists his public professional channels.'};
   if (/学歴|大学|卒業/.test(prompt)) return {answer:education};
-  if (/スキル|技術|得意/.test(prompt)) return {answer:skills};
+  if (/スキル|技術|得意/.test(prompt)) return {answer:skillsJa};
   if (/資格|認定/.test(prompt)) return {answer:certificate};
   if (/職務|仕事|勤務|経歴|経験/.test(prompt)) return {answer:background};
   if (/問い合わせ|連絡/.test(prompt)) return {answer:'お問い合わせ欄のLinkedIn、GitHub、メールからご連絡いただけます。'};
@@ -34,7 +35,7 @@ export function findAnswer(prompt, lastProject) {
   if (/contact|email|linkedin|hire|reach/i.test(prompt)) return {answer:'Find Bipra on LinkedIn, GitHub, or via the email link in the portfolio’s Contact section.'};
   if (/certif|azure/i.test(prompt)) return {answer:certificate};
   if (/educat|college|university|\bvit\b|degree|robotics|nexseed|graduat/i.test(prompt)) return {answer:education};
-  if (/skill|tech stack|tools/i.test(prompt) || (/\b(?:bipra|his)\b/i.test(prompt) && /pytorch|python|grad.cam|optuna|tensorrt|labelme|unreal|mysql/i.test(prompt))) return {answer:skills};
+  if (/skill|tech stack|tools/i.test(prompt) || (/\b(?:bipra|his)\b/i.test(prompt) && /pytorch|python|opencv|grad.cam|tensorrt|unreal|mysql/i.test(prompt))) return {answer:skills};
   if (/projects|portfolio|what.*built/i.test(prompt)) return {answer:'Start with VisionX for computer vision, K&K for transactional checkout and automated tests, and ParkRelay for backend development. See Selected projects for the full list.'};
   if (/bipra|experience|employ|background|job|intfor|what (do|does).*work/i.test(prompt)) return {answer:background};
   return null;

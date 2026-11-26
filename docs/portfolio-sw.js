@@ -1,4 +1,4 @@
-const coreCache = 'bipra-new-portfolio-core-v7';
+const coreCache = 'bipra-new-portfolio-core-v8';
 const modelCache = 'bipra-new-portfolio-runtime-v2';
 const local = name => new URL(name, self.registration.scope).href;
 const core = ['index.html', 'portfolio.css', 'portfolio.mjs', 'portfolio-data.mjs', 'friday-worker.mjs', 'experience.mjs', 'japanese.mjs',
@@ -10,7 +10,7 @@ self.addEventListener('install', event => {
 });
 self.addEventListener('activate', event => {
   event.waitUntil((async () => {
-    await Promise.all(['bipra-new-portfolio-core-v1','bipra-new-portfolio-core-v2','bipra-new-portfolio-core-v3','bipra-new-portfolio-core-v4','bipra-new-portfolio-core-v5','bipra-new-portfolio-core-v6','bipra-new-portfolio-runtime-v1'].map(name => caches.delete(name)));
+    await Promise.all(['bipra-new-portfolio-core-v1','bipra-new-portfolio-core-v2','bipra-new-portfolio-core-v3','bipra-new-portfolio-core-v4','bipra-new-portfolio-core-v5','bipra-new-portfolio-core-v6','bipra-new-portfolio-core-v7','bipra-new-portfolio-runtime-v1'].map(name => caches.delete(name)));
     await self.clients.claim();
   })());
 });
