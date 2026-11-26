@@ -14,9 +14,9 @@ export const projects = [
   {name:'Facial Recognition & Emotion AI', type:'Computer vision', image:'facial.jpg', tags:'Python · Facial recognition', keywords:/facial|emotion/i, text:'A student project exploring face and emotion recognition.'},
 ].map(p => ({...p, url:p.slug ? github + p.slug : ''}));
 
-const background = 'Bipra Biswas is an AI Engineer in the Advanced Business Department of Intfor Co., Ltd. (T&S Group) in Japan, where he has worked since April 2026. His work includes image classification, semantic segmentation, 3D image processing for artifact removal, large vision model evaluation, and TensorRT inference optimization.';
+const background = 'Bipra Biswas is an AI Engineer at Intfor Co., Ltd. (T&S Group) in Japan, where he has worked since April 2026. His work includes image classification, semantic segmentation, 3D image processing for artifact removal, large vision model evaluation, and TensorRT inference optimization.';
 const skills = 'Bipra uses Python, PyTorch, Linux, Windows, GitLab, and GitHub. His work includes dataset creation and annotation with Labelme and other tools, synthetic training data generation with Unreal Engine, reproducible GPU experiments, cross-validation, Grad-CAM, Optuna, and model benchmarking. His software projects use React, Node.js, Express, MongoDB, PostgreSQL, and MySQL.';
-const education = 'Bipra earned a B.Tech in Computer Science and Engineering (AI & Robotics) at Vellore Institute of Technology in June 2025. He led the NexSeed Venture Capital Club and contributed to the Aerospace Club.';
+const education = 'Bipra earned a B.Tech in Computer Science and Engineering (AI & Robotics) at Vellore Institute of Technology in June 2025. In VIT’s Aerospace Club, he helped build drones, model aircraft, and model rockets, and contributed to drone testing and documentation.';
 const certificate = 'Bipra holds the Microsoft Certified: Azure Administrator Associate credential.';
 export const facts = [background, skills, education, certificate, ...projects.map(p => p.name + ' — ' + p.text)].join('\n');
 
