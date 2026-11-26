@@ -14,9 +14,10 @@ export const projects = [
   {name:'Facial Recognition & Emotion AI', type:'Computer vision', image:'facial.jpg', tags:'Python · Facial recognition', keywords:/facial|emotion/i, text:'A student project exploring face and emotion recognition.'},
 ].map(p => ({...p, url:p.slug ? github + p.slug : ''}));
 
-const background = 'Bipra Biswas is an AI Engineer at Intfor Co., Ltd. (T&S Group) in Japan, where he has worked since April 2026. His work includes image classification, semantic segmentation, 3D image processing for artifact removal, large vision model evaluation, and TensorRT inference optimization.';
-const skills = 'Computer vision: image classification, semantic segmentation, 3D image processing, and large vision models (LVMs). ML tools: Python, PyTorch, OpenCV, TensorRT, Grad-CAM, Unreal Engine, and data augmentation. Software and data: Linux, Git, GitHub, GitLab, SQL, MySQL, PostgreSQL, and MongoDB.';
-const skillsJa = 'コンピュータビジョン：画像分類、セマンティックセグメンテーション、3D画像処理、大規模ビジョンモデル（LVM）。機械学習ツール：Python、PyTorch、OpenCV、TensorRT、Grad-CAM、Unreal Engine、データ拡張。開発・データベース：Linux、Git、GitHub、GitLab、SQL、MySQL、PostgreSQL、MongoDB。';
+const background = "Bipra Biswas is an AI Engineer at Intfor Co., Ltd. (T&S Group) in Japan, where he has worked since April 2026. He improved image classification accuracy from 78% to 98% by testing more than 20 augmentation configurations and refining the training data and model. He used Grad-CAM to investigate recurring errors, then reviewed mislabeled images, underrepresented classes, and visually similar categories. He reduced inference time by 46% with TensorRT on a large vision model (LVM) project. For a CPU-only semantic segmentation project, He reviewed more than 50 models, benchmarked and fine-tuned candidates, and documented the recommended model for handoff. He used masking to create clean training targets where no clean reference data was available, then trained a model for 3D image artifact removal. He built Unreal Engine Blueprints and integrated animations from Fab to generate synthetic training data for autonomous driving.";
+const backgroundJa = "ビスワス・ビップロは2026年4月から日本のIntfor（T&Sグループ）でAIエンジニアとして勤務しています。20通り以上のデータ拡張設定を比較し、学習データとモデルの改善により、画像分類の精度を78％から98％に向上させました。Grad-CAMで繰り返し発生する誤分類を分析し、誤ラベル、データが少ないクラス、外観が似ているクラスを確認しました。大規模ビジョンモデル（LVM）のプロジェクトでTensorRTを使用し、推論時間を46％短縮しました。CPUのみを使用するセマンティックセグメンテーションのプロジェクトで、50件超のモデルを調査しました。候補の性能を測定してファインチューニングを行い、推奨モデルと選定理由を引き継ぎ用に文書化しました。アーチファクトのない参照データが得られない状況で、マスキングにより学習用の教師データを作成し、3D画像のアーチファクト除去モデルを学習させました。Unreal EngineでBlueprintsを作成し、Fabのアニメーションを組み込んで、自動運転向けの合成学習データを生成しました。";
+const skills = "Computer vision: Image classification, Semantic segmentation, CT image processing, Vision-language model evaluation. ML frameworks and tools: Python, PyTorch, OpenCV, TensorRT. Synthetic data generation: Unreal Engine, Blueprints. Software and databases: Linux, Git, GitHub, GitLab, SQL, MySQL, PostgreSQL, MongoDB.";
+const skillsJa = "コンピュータービジョン：画像分類、セマンティックセグメンテーション、CT画像処理、視覚言語モデルの評価。機械学習フレームワーク・ツール：Python、PyTorch、OpenCV、TensorRT。合成データ生成：Unreal Engine、Blueprints。ソフトウェア開発・データベース：Linux、Git、GitHub、GitLab、SQL、MySQL、PostgreSQL、MongoDB。";
 const education = 'Bipra earned a B.Tech in Computer Science and Engineering (AI & Robotics) at Vellore Institute of Technology in June 2025. In VIT’s Aerospace Club, he helped build drones, model aircraft, and model rockets, and contributed to drone testing and documentation.';
 const certificate = 'Bipra holds the Microsoft Certified: Azure Administrator Associate credential.';
 export const facts = [background, skills, education, certificate, ...projects.map(p => p.name + ' — ' + p.text)].join('\n');
@@ -26,7 +27,7 @@ export function findAnswer(prompt, lastProject) {
   if (/学歴|大学|卒業/.test(prompt)) return {answer:education};
   if (/スキル|技術|得意/.test(prompt)) return {answer:skillsJa};
   if (/資格|認定/.test(prompt)) return {answer:certificate};
-  if (/職務|仕事|勤務|経歴|経験/.test(prompt)) return {answer:background};
+  if (/職務|仕事|勤務|経歴|経験/.test(prompt)) return {answer:backgroundJa};
   if (/問い合わせ|連絡/.test(prompt)) return {answer:'お問い合わせ欄のLinkedIn、GitHub、メールからご連絡いただけます。'};
   if (/プロジェクト|作品/.test(prompt)) return {answer:'画像認識ならVisionX、注文処理と自動テストならK&K、バックエンド開発ならParkRelayをご覧ください。'};
   const matched = projects.filter(p => p.keywords.test(prompt));

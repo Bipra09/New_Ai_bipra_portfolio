@@ -19,6 +19,15 @@ export const projectJa = Object.fromEntries(projects.flatMap((project, index) =>
   [project.name + ' — ' + project.text, project.name + ' — ' + descriptions[index]],
 ]));
 export const ja = {
+  "I improved image classification accuracy from 78% to 98% by testing more than 20 augmentation configurations and refining the training data and model. I used Grad-CAM to investigate recurring errors, then reviewed mislabeled images, underrepresented classes, and visually similar categories.": "20通り以上のデータ拡張設定を比較し、学習データとモデルの改善により、画像分類の精度を78％から98％に向上させました。Grad-CAMで繰り返し発生する誤分類を分析し、誤ラベル、データが少ないクラス、外観が似ているクラスを確認しました。",
+  "I reduced inference time by 46% with TensorRT on a large vision model (LVM) project.": "大規模ビジョンモデル（LVM）のプロジェクトでTensorRTを使用し、推論時間を46％短縮しました。",
+  "For a CPU-only semantic segmentation project, I reviewed more than 50 models, benchmarked and fine-tuned candidates, and documented the recommended model for handoff.": "CPUのみを使用するセマンティックセグメンテーションのプロジェクトで、50件超のモデルを調査しました。候補の性能を測定してファインチューニングを行い、推奨モデルと選定理由を引き継ぎ用に文書化しました。",
+  "I used masking to create clean training targets where no clean reference data was available, then trained a model for 3D image artifact removal.": "アーチファクトのない参照データが得られない状況で、マスキングにより学習用の教師データを作成し、3D画像のアーチファクト除去モデルを学習させました。",
+  "I built Unreal Engine Blueprints and integrated animations from Fab to generate synthetic training data for autonomous driving.": "Unreal EngineでBlueprintsを作成し、Fabのアニメーションを組み込んで、自動運転向けの合成学習データを生成しました。",
+  "Image classification · Semantic segmentation · CT image processing · Vision-language model evaluation": "画像分類 · セマンティックセグメンテーション · CT画像処理 · 視覚言語モデルの評価",
+  "ML frameworks and tools": "機械学習フレームワーク・ツール",
+  "Synthetic data generation": "合成データ生成",
+  "Software and databases": "ソフトウェア開発・データベース",
   'Skip to content':'本文へ移動',
   'Projects':'プロジェクト',
   'Experience':'職務経験',
@@ -49,10 +58,6 @@ export const ja = {
   'EDUCATION':'学歴',
   'B.Tech in Computer Science and Engineering (AI & Robotics), June 2025.':'2025年6月、コンピューター科学・工学（AI・ロボティクス）学士課程を修了。',
   'Computer vision':'コンピュータビジョン',
-  'ML tools':'機械学習ツール',
-  'Software and data':'開発・データベース',
-  'Image classification · Semantic segmentation · 3D image processing · Large vision models (LVMs)':'画像分類 · セマンティックセグメンテーション · 3D画像処理 · 大規模ビジョンモデル（LVM）',
-  'Python · PyTorch · OpenCV · TensorRT · Grad-CAM · Unreal Engine · Data augmentation':'Python · PyTorch · OpenCV · TensorRT · Grad-CAM · Unreal Engine · データ拡張',
   'Get in touch':'お問い合わせ',
   'Based in Japan and open to conversations about AI and software engineering.':'日本を拠点に、AIやソフトウェア開発に関するご連絡をお待ちしています。',
   'Email':'メール',
@@ -75,6 +80,5 @@ export const ja = {
   "I create and annotate image datasets and generate synthetic training data with Unreal Engine. I design experiments to identify recurring model errors, use confusion matrices and Grad-CAM to investigate them, and test changes to see which ones improve performance.": "画像データセットの作成・アノテーションを行い、Unreal Engineで合成学習データを生成しています。実験を設計してモデルの誤りの傾向を把握し、混同行列とGrad-CAMで原因を調べ、改善案の効果を検証しています。",
   "I compare models on accuracy and inference speed, use TensorRT to optimize inference, and help package and document software for Windows and Linux.": "精度と推論速度でモデルを比較し、TensorRTで推論を最適化しています。Windows・Linux向けソフトウェアのパッケージ作成とドキュメント整備にも携わっています。",
   "As a member of VIT’s Aerospace Club, I helped build drones, model aircraft, and model rockets. I contributed to drone testing and documented the results, gaining hands-on experience taking a design from assembly to testing and using what we learned to improve the next iteration.": "VITの航空宇宙クラブで、ドローン、模型飛行機、モデルロケットの製作に携わりました。ドローンの試験と結果の記録を担当し、組み立てから試験までを経験しました。試験で得た知見は次の改良に活かしました。",
-  "Bipra Biswas is an AI Engineer at Intfor Co., Ltd. (T&S Group) in Japan, where he has worked since April 2026. His work includes image classification, semantic segmentation, 3D image processing for artifact removal, large vision model evaluation, and TensorRT inference optimization.": "ビプラ・ビスワスは2026年4月から日本のIntfor（T&Sグループ）でAIエンジニアとして勤務しています。画像分類、セマンティックセグメンテーション、アーチファクト除去のための3D画像処理、大規模ビジョンモデルの評価、TensorRTによる推論の最適化に取り組んでいます。",
   "Bipra earned a B.Tech in Computer Science and Engineering (AI & Robotics) at Vellore Institute of Technology in June 2025. In VIT’s Aerospace Club, he helped build drones, model aircraft, and model rockets, and contributed to drone testing and documentation.": "2025年6月にVellore Institute of Technologyでコンピューター科学・工学の学士号（AI・ロボティクス専攻）を取得しました。航空宇宙クラブではドローン、模型飛行機、モデルロケットの製作や、ドローンの試験と記録に携わりました。",
 };
