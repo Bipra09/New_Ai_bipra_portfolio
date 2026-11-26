@@ -1,18 +1,23 @@
-const coreCache = 'bipra-new-portfolio-core-v1';
-const modelCache = 'bipra-new-portfolio-runtime-v1';
+const coreCache = 'bipra-new-portfolio-core-v2';
+const modelCache = 'bipra-new-portfolio-runtime-v2';
 const local = name => new URL(name, self.registration.scope).href;
 const core = ['index.html', 'portfolio.css', 'portfolio.mjs', 'portfolio-data.mjs', 'friday-worker.mjs',
   'myphoto_git.jpeg', 'VX.jpg', 'WHB.jpg', 'safe.jpg', 'RFID.jpg', 'OB.jpg', 'facial.jpg'].map(local);
-const runtime = local('friday-runtime.mjs');
+const runtime = ['friday-runtime.mjs', 'ort-wasm-simd-threaded.jsep.mjs', 'ort-wasm-simd-threaded.jsep.wasm'].map(local);
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(coreCache).then(cache => cache.addAll(core)).then(() => self.skipWaiting()));
 });
-self.addEventListener('activate', event => event.waitUntil(self.clients.claim()));
+self.addEventListener('activate', event => {
+  event.waitUntil((async () => {
+    await Promise.all(['bipra-new-portfolio-core-v1','bipra-new-portfolio-runtime-v1'].map(name => caches.delete(name)));
+    await self.clients.claim();
+  })());
+});
 self.addEventListener('fetch', event => {
   const {request} = event;
   if (request.method !== 'GET') return;
-  if (request.url === runtime) {
+  if (runtime.includes(request.url)) {
     event.respondWith((async () => {
       const cache = await caches.open(modelCache);
       const cached = await cache.match(request);

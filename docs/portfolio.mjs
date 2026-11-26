@@ -123,14 +123,15 @@ function disableModel(message) {
   modelButton.textContent = 'Retry on-device model';
 }
 
-if (!navigator.gpu) {
-  modelButton.disabled = true;
-  status.textContent = 'Portfolio answers · WebGPU unavailable';
-}
 modelButton.onclick = async () => {
   modelButton.disabled = true;
   status.textContent = 'Preparing on-device model…';
   try {
+    const files = ['friday-runtime.mjs', 'ort-wasm-simd-threaded.jsep.mjs', 'ort-wasm-simd-threaded.jsep.wasm'];
+    const cache = await caches.open('bipra-new-portfolio-runtime-v2');
+    for (const file of files) {
+      if (!await cache.match('./' + file)) await cache.add('./' + file);
+    }
     worker = new Worker('./friday-worker.mjs', { type:'module' });
     await workerCall({kind:'load'}, text => { status.textContent = text; });
     modelReady = true;
